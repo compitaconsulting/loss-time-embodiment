@@ -1,0 +1,962 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loss, Time, and Embodiment — Call for Contributors</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1714;
+      --vellum: #f5f0e8;
+      --warm-mid: #e8e0d0;
+      --muted: #7a7060;
+      --accent: #8b6914;
+      --accent-light: #c9a84c;
+      --vol1: #3d5a47;
+      --vol2: #3a4a6b;
+      --rule: #c8bfaa;
+      --assigned: #8b6914;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--vellum);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* CONTACT BAR */
+    .contact-bar {
+      background: var(--ink);
+      color: rgba(245,240,232,0.6);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      padding: 0.55rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .contact-bar a { color: rgba(245,240,232,0.85); text-decoration: none; }
+    .contact-bar a:hover { color: var(--accent-light); }
+    .contact-bar .sep { color: rgba(245,240,232,0.25); }
+    .contact-bar .cc { color: rgba(245,240,232,0.4); font-size: 0.68rem; }
+
+    /* HEADER */
+    header {
+      background: var(--vellum);
+      color: var(--ink);
+      text-align: center;
+      padding: 4rem 2rem 3.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--rule);
+    }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    header h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+    header h1 em { font-style: italic; color: var(--accent); }
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .editors-line {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .ornament {
+      margin: 2rem auto 0;
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    /* NAV */
+    nav {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 0 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    nav a {
+      color: rgba(245,240,232,0.55);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 1.25rem;
+      display: block;
+      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover {
+      color: var(--accent-light);
+      border-bottom-color: var(--accent-light);
+    }
+
+    /* LAYOUT */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .wide { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    section, .section-block {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: var(--ink);
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    p { margin-bottom: 1.1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 2rem 0;
+      background: rgba(139,105,20,0.05);
+      font-style: italic;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    /* STATS GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5px;
+      background: var(--rule);
+      border: 1.5px solid var(--rule);
+      margin-top: 3rem;
+    }
+    .stat-item {
+      background: var(--vellum);
+      padding: 1.5rem;
+    }
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .stat-value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+    .stat-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* VOLUMES */
+    .volumes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) { .volumes-grid { grid-template-columns: 1fr; } }
+
+    .volume-card {
+      border: 1.5px solid var(--rule);
+      background: #fff;
+      padding: 2rem;
+      position: relative;
+    }
+    .volume-card.vol1 { border-top: 4px solid var(--vol1); }
+    .volume-card.vol2 { border-top: 4px solid var(--vol2); }
+
+    .vol-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 1rem;
+      border-radius: 2px;
+    }
+    .vol1 .vol-tag { background: var(--vol1); color: #fff; }
+    .vol2 .vol-tag { background: var(--vol2); color: #fff; }
+
+    .volume-card h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
+    .volume-sub {
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--warm-mid);
+    }
+
+    .chapter-list {
+      list-style: none;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .chapter-list li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--warm-mid);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .chapter-list li:last-child { border-bottom: none; }
+    .chapter-list strong { color: var(--ink); }
+    .chapter-list .dash { color: var(--muted); flex-shrink: 0; }
+
+    .assigned-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--assigned);
+      border: 1px solid var(--assigned);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    /* TIMELINE */
+    .timeline { margin-top: 2.5rem; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9.5rem;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--rule);
+    }
+    @media (max-width: 768px) {
+      .timeline::before { display: none; }
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 9rem 1px 1fr;
+      gap: 0 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .timeline-dot { display: none; }
+    }
+
+    .timeline-date {
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding-top: 0.1rem;
+      line-height: 1.4;
+    }
+    @media (max-width: 768px) { .timeline-date { text-align: left; } }
+
+    .timeline-dot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .timeline-dot::before {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--vellum);
+      box-shadow: 0 0 0 1px var(--accent);
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .timeline-item.benchmark .timeline-dot::before {
+      background: var(--ink);
+      box-shadow: 0 0 0 1px var(--ink);
+      width: 11px;
+      height: 11px;
+    }
+    .timeline-content h4 { color: var(--ink); font-size: 0.97rem; }
+    .timeline-item.benchmark .timeline-content h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .timeline-content p { font-size: 0.9rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* GUIDELINES */
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--rule);
+      border: 1.5px solid var(--rule);
+      margin-top: 2rem;
+    }
+    .guideline-item {
+      background: var(--vellum);
+      padding: 1.5rem;
+    }
+    .guideline-item.full { grid-column: 1 / -1; }
+    .g-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .g-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .g-note { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+    .g-note strong { color: var(--ink); }
+
+    /* DEADLINE TABLE */
+    .deadline-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-size: 0.88rem;
+    }
+    .deadline-table thead th {
+      background: var(--ink);
+      color: var(--vellum);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .deadline-table tbody tr { border-bottom: 1px solid var(--warm-mid); }
+    .deadline-table tbody tr:last-child { border-bottom: none; }
+    .deadline-table tbody td { padding: 0.85rem 1rem; vertical-align: top; }
+    .deadline-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.5); }
+    .stage-name { font-weight: 600; color: var(--ink); }
+    .stage-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .hard-deadline {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--vellum);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    /* EDITORS */
+    .editors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 640px) { .editors-grid { grid-template-columns: 1fr; } }
+
+    .editor-card {
+      border: 1.5px solid var(--rule);
+      padding: 2rem;
+      background: #fff;
+    }
+    .editor-card h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+    .editor-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .editor-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* POLICIES */
+    .policy-block {
+      border-bottom: 1px solid var(--warm-mid);
+      padding: 1.75rem 0;
+    }
+    .policy-block:first-child { padding-top: 0; }
+    .policy-block:last-child { border-bottom: none; }
+    .policy-block h3 {
+      font-size: 1.05rem;
+      font-family: 'EB Garamond', serif;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .policy-block p { font-size: 0.92rem; color: var(--muted); }
+
+    /* CTA */
+    .cta-section {
+      background: var(--ink);
+      color: var(--vellum);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .cta-section .eyebrow { color: var(--accent-light); margin-bottom: 1rem; }
+    .cta-section h2 {
+      color: var(--vellum);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+    .cta-section p { color: rgba(245,240,232,0.65); max-width: 520px; margin: 0 auto 2rem; font-size: 0.95rem; }
+
+    .cta-button {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.5rem;
+      border: 1.5px solid var(--accent-light);
+      color: var(--accent-light);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cta-button:hover {
+      background: var(--accent-light);
+      color: var(--ink);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: rgba(245,240,232,0.35);
+      text-align: center;
+      padding: 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+    .reveal:nth-child(1) { animation-delay: 0.05s; }
+    .reveal:nth-child(2) { animation-delay: 0.15s; }
+    .reveal:nth-child(3) { animation-delay: 0.25s; }
+    .reveal:nth-child(4) { animation-delay: 0.35s; }
+
+    /* CONTACT SECTION */
+    #contact .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5px;
+      background: var(--rule);
+      border: 1.5px solid var(--rule);
+      margin-top: 2rem;
+    }
+    #contact .contact-item {
+      background: var(--vellum);
+      padding: 1.5rem;
+    }
+    #contact .contact-item a { color: var(--accent); text-decoration: none; }
+    #contact .contact-item a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .timeline::before { display: none; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-date { text-align: left; }
+      .guidelines-grid { grid-template-columns: 1fr; }
+      .guideline-item.full { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+  <span>Contact</span>
+  <a href="mailto:mitch@compitaconsulting.com">mitch [at] compitaconsulting [dot] com</a>
+  <span class="sep">·</span>
+  <span class="cc">CC:</span>
+  <a href="mailto:luma_mahairi@yahoo.com">luma_mahairi [at] yahoo [dot] com</a>
+  <span class="sep">·</span>
+  <span style="color:rgba(245,240,232,0.3);">Stimers &amp; Mahairi, Eds.</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <p class="eyebrow reveal">Call for Contributors &nbsp;·&nbsp; Two-Volume Edited Collection &nbsp;·&nbsp; Routledge</p>
+  <h1 class="reveal"><em>Loss, Time,</em> and Embodiment</h1>
+  <p class="subtitle reveal">Interdisciplinary Perspectives on Understanding and Reconciliation</p>
+  <p class="editors-line reveal">Edited by Mitchel Stimers, PhD &nbsp;&nbsp;·&nbsp;&nbsp; Luma Mahairi, PhD, PharmD</p>
+  <div class="ornament"></div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About the Project</a>
+  <a href="#volumes">Volume Structure</a>
+  <a href="#timeline">Project Timeline</a>
+  <a href="#guidelines">Manuscript Guidelines</a>
+  <a href="#deadlines">Contributor Deadlines</a>
+  <a href="#editors">Editors</a>
+  <a href="#policies">Policies</a>
+  <a href="#contact">Contact the Editors</a>
+</nav>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About the Project</p>
+    <h2>A project at the intersection of grief, time, and the lived body</h2>
+    <div class="pull-quote">
+      <p>Loss is not merely emotional — it is material, spatial, and structural. This project asks how loss reshapes identity and embodied experience across human lives, disciplines, and institutions.</p>
+    </div>
+    <p><em>Loss, Time, and Embodiment</em> is a two-volume interdisciplinary collection that examines loss as a rupture in identity, structure, and meaning. Psychological scholarship on grief has moved well beyond stage-based accounts, expanding into meaning-making, relational continuity, and unequal exposure to loss across social structures. Somatic and embodied approaches have introduced another strand, linking grief to perception, action, and the lived body. The proposed volumes build on those developments while widening the frame to include disciplines that rarely engage in sustained dialogue.</p>
+    <p>A cross-domain structure supports comparison across personal, institutional, and ecological registers without sacrificing explanatory power to any single vocabulary. Each volume concludes with editorial synthesis chapters that trace recurring themes — embodied time, disrupted meaning, and structural exposure to harm — across all contributions. The design preserves disciplinary specificity while supporting integrative reading across fields.</p>
+    <p>The collection has been accepted by Routledge, with revisions currently in progress. Author recruitment is underway, with a targeted roster of 53 external contributors across both volumes. The project runs from April 2026 through August 2027.</p>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-label">Total Chapters</div>
+        <div class="stat-value">59 chapters</div>
+        <div class="stat-note">53 contributed + 4 editor-authored + 2 thematic synthesis</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">External Contributors</div>
+        <div class="stat-value">53 authors</div>
+        <div class="stat-note">Established and emerging scholars across disciplines</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Publisher</div>
+        <div class="stat-value">Routledge</div>
+        <div class="stat-note">Taylor &amp; Francis Group. Proposal accepted; revisions in progress.</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Project Window</div>
+        <div class="stat-value">Apr 2026 – Aug 2027</div>
+        <div class="stat-note">~16.5 months, full production cycle</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUMES -->
+<section id="volumes">
+  <div class="wide">
+    <p class="section-label">Volume Structure</p>
+    <h2>Two volumes. One unified framework.</h2>
+    <p style="color:var(--muted); max-width:680px;">Each volume is designed to stand alone while contributing to an integrated argument. Volume I approaches loss through the existential and symbolic; Volume II through the biological, systemic, and professional.</p>
+    <div class="volumes-grid">
+
+      <!-- VOL I -->
+      <div class="volume-card vol1">
+        <span class="vol-tag">Volume I</span>
+        <h3>Humanities &amp; Social Sciences</h3>
+        <p class="volume-sub">Existential, cultural, and narrative frameworks of loss</p>
+        <ul class="chapter-list">
+          <li><strong>Philosophy</strong><span class="dash">—</span>Merleau-Ponty and the Lived Body of Loss</li>
+          <li><strong>History</strong><span class="dash">—</span>Erasure, Memory Wars, and Historical Grief</li>
+          <li><strong>Theology &amp; Religious Studies</strong><span class="dash">—</span>Faith After Rupture: Religious Loss and New Theologies</li>
+          <li><strong>Literature</strong><span class="dash">—</span>Grief on the Page: Contemporary Literature and Absence</li>
+          <li><strong>Art &amp; Art History</strong><span class="dash">—</span>Representations of Loss: Artistic Responses to Grief</li>
+          <li><strong>Music</strong><span class="dash">—</span>Soundtracks of Sorrow: Music's Role in Healing Loss</li>
+          <li><strong>Film Studies</strong><span class="dash">—</span>Mourning in Motion: Cinema, Displacement, Affective Time</li>
+          <li><strong>Performance Studies</strong><span class="dash">—</span>Embodied Grief in Movement, Ritual, and Performance <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Linguistics</strong><span class="dash">—</span>Vanishing Words: Language Loss and Cultural Survival</li>
+          <li><strong>Psychology</strong><span class="dash">—</span>Meaning, Ambiguity, and Structural Exposure in Grief <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Sociology</strong><span class="dash">—</span>Grief in the Group: Collective Bereavement</li>
+          <li><strong>Anthropology</strong><span class="dash">—</span>Death Rites and the Resilience of Meaning</li>
+          <li><strong>Political Science</strong><span class="dash">—</span>Broken States: Institutional Grief and Power</li>
+          <li><strong>Economics</strong><span class="dash">—</span>Precarity and Resilience: Economic Loss in Crisis</li>
+          <li><strong>Geography</strong><span class="dash">—</span>Disaster Cartographies: Mapping Loss <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Rural Geography</strong><span class="dash">—</span>Vanishing Fields: Disintegration of Rural Life <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Communication Studies</strong><span class="dash">—</span>Mediating Loss: Platforms and Public Grief <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Women's &amp; Gender Studies</strong><span class="dash">—</span>Reproductive Loss, Political Grief, and the Body <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Ethnic Studies</strong><span class="dash">—</span>Loss of Heritage: Diaspora and Cultural Memory</li>
+          <li><strong>Ethics</strong><span class="dash">—</span>Moral Loss: Ethics After Atrocity</li>
+        </ul>
+      </div>
+
+      <!-- VOL II -->
+      <div class="volume-card vol2">
+        <span class="vol-tag">Volume II</span>
+        <h3>Science &amp; Professional Practice</h3>
+        <p class="volume-sub">Biological, environmental, and systemic dimensions of loss</p>
+        <ul class="chapter-list">
+          <li><strong>Environmental Science</strong><span class="dash">—</span>Biodiversity Loss and Ecological Grief</li>
+          <li><strong>Land Use &amp; Land Cover Change</strong><span class="dash">—</span>Shifting Grounds: Displacement of Ecologies</li>
+          <li><strong>Biology</strong><span class="dash">—</span>Extinction Events and the Biological Imagination</li>
+          <li><strong>Oceanography</strong><span class="dash">—</span>The Vanishing Deep: Marine Loss</li>
+          <li><strong>Climatology</strong><span class="dash">—</span>Human Systems Under Stress and Inaction</li>
+          <li><strong>Glaciology</strong><span class="dash">—</span>Glacial Melting and Disruption of Water and Life</li>
+          <li><strong>Medical Science</strong><span class="dash">—</span>Memory and the Slow Loss of Self in Alzheimer's</li>
+          <li><strong>Neuroscience</strong><span class="dash">—</span>Brain, Mind, and Emotional Processing of Loss</li>
+          <li><strong>Ophthalmology</strong><span class="dash">—</span>Vision Loss and Embodied Perception</li>
+          <li><strong>Audiology</strong><span class="dash">—</span>Hearing Loss, Silence, and Social Dislocation</li>
+          <li><strong>Veterinary Science</strong><span class="dash">—</span>Animal Companionship and Pet Loss</li>
+          <li><strong>Public Health</strong><span class="dash">—</span>Population Loss and the Politics of Crisis</li>
+          <li><strong>Nursing</strong><span class="dash">—</span>Compassion Fatigue and Emotional Labor</li>
+          <li><strong>Social Work</strong><span class="dash">—</span>Trauma and Healing in Therapeutic Practice <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Somatic Psychotherapy</strong><span class="dash">—</span>Autonomic Regulation and Grief in Practice</li>
+          <li><strong>Education</strong><span class="dash">—</span>Learning Loss, Pandemic Inequality <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Business &amp; Leadership</strong><span class="dash">—</span>Organizational Change and Loss of Direction <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Macro Finance</strong><span class="dash">—</span>From Collapse to Correction: Financial Systems and Recovery <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Engineering &amp; Architecture</strong><span class="dash">—</span>Losing Ground: Failing Infrastructures</li>
+          <li><strong>Computer Science</strong><span class="dash">—</span>System Failure and the Institutional Cost of Data Loss</li>
+          <li><strong>Urban Planning</strong><span class="dash">—</span>Gentrification, Displacement, and the Loss of Place <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Journalism &amp; Media</strong><span class="dash">—</span>Censorship, Disinformation, and the Journalism of Loss</li>
+          <li><strong>Sports Science</strong><span class="dash">—</span>Losing the Game: Sports, Identity, and the Psychology of Defeat <span class="assigned-tag">Assigned</span></li>
+          <li><strong>Life Sciences</strong><span class="dash">—</span>The Cost of Dying: End-of-Life Inequality and Economic Despair</li>
+          <li><strong>The Grief Industry</strong><span class="dash">—</span>Commodification, Self-Help, and the Business of Mourning</li>
+          <li><strong>Personal Finance</strong><span class="dash">—</span>Bankrupted Lives: Financial Collapse and Psychosocial Ruin</li>
+          <li><strong>Law</strong><span class="dash">—</span>Legal Abandonment: When Systems Withdraw Protection</li>
+          <li><strong>Law</strong><span class="dash">—</span>Carceral Grief: Loss Within the Walls of Incarceration</li>
+          <li><strong>Law</strong><span class="dash">—</span>Law Without Closure: Unresolved Cases and the Pursuit of Justice</li>
+          <li><strong>Law</strong><span class="dash">—</span>Legacies of Law: Intergenerational Trauma and Legal Inheritance</li>
+          <li><strong>Law</strong><span class="dash">—</span>Wrongful Conviction: The Silence of Unjust Loss</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <p class="section-label">Project Timeline</p>
+    <h2>Seven phases, April 2026 – August 2027</h2>
+    <p style="color:var(--muted); font-size:0.93rem;">The timeline below covers the full production cycle from launch through final manuscript delivery. Benchmark points mark transitions between major project stages.</p>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">Apr 15–May 15<br>2026</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Phase 1 — Launch &amp; Infrastructure</h4>
+          <p>Author portal configured; volume structure finalized; all 59 chapter assignments locked; outreach templates and contributor materials prepared.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">May 15–Jul 15<br>2026</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Phase 2 — Recruitment &amp; Confirmation</h4>
+          <p>Wave 1 invitations sent to all 53 target authors; follow-ups with non-responders; alternates recruited to fill any gaps; signed agreements, bios, and headshots collected.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item benchmark">
+        <div class="timeline-date">Jul 15<br>2026</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Benchmark 1 — Full Roster Confirmed</h4>
+          <p>All 53 external author slots filled. All 59 chapter assignments locked. Portal fully populated.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 15–Nov 15<br>2026</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Phase 3 — First Drafts</h4>
+          <p>Authors write and submit complete first drafts (7,000–9,000 words). Editors monitor progress, issue bi-weekly check-ins with lagging authors, and write their own solo and thematic chapters.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item benchmark">
+        <div class="timeline-date">Nov 15<br>2026</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Benchmark 2 — All Drafts Received</h4>
+          <p>All 53 contributed chapter drafts logged in portal. Editorial review cycle begins.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Nov 15–Feb 28<br>2026–2027</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Phase 4 — Content Editing &amp; Revision</h4>
+          <p>Editors divide chapters and conduct full substantive edits (argument, structure, transitions, length, thematic fit). Authors receive feedback and revise by January 31, 2027.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item benchmark">
+        <div class="timeline-date">Mar 1<br>2027</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Benchmark 3 — Content Editing Complete</h4>
+          <p>All contributed chapters approved for copyediting. Thematic synthesis chapter drafting underway.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 1–May 31<br>2027</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Phase 5 — Copyediting &amp; Reference Checking</h4>
+          <p>Line-level style, grammar, consistency, and formatting applied to all chapters. In-text citations and reference lists verified. Author queries returned through portal; responses due within two weeks.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jun–Aug<br>2027</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Phases 6–7 — Proofs &amp; Final Delivery</h4>
+          <p>Formatted proofs sent to authors for final review (factual accuracy and typographical errors only). Signed approvals collected. Final manuscript delivered to publisher by August 30, 2027.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUIDELINES -->
+<section id="guidelines">
+  <div class="container">
+    <p class="section-label">Manuscript Guidelines</p>
+    <h2>What we need from you</h2>
+    <div class="guidelines-grid">
+      <div class="guideline-item">
+        <div class="g-label">Word Count</div>
+        <div class="g-value">7,000–9,000 words</div>
+        <div class="g-note">Inclusive of in-text citations and reference list. Contact the editors before submitting if you anticipate running significantly outside this range.</div>
+      </div>
+      <div class="guideline-item">
+        <div class="g-label">File Format</div>
+        <div class="g-value">Microsoft Word (.docx)</div>
+        <div class="g-note">PDFs and Google Docs links will not be accepted.</div>
+      </div>
+      <div class="guideline-item full">
+        <div class="g-label">Formatting &amp; Citations</div>
+        <div class="g-value">APA 7th Edition</div>
+        <div class="g-note">All chapters must follow APA 7th edition style throughout, including in-text citations, reference lists, headings, and figures.</div>
+      </div>
+    </div>
+    <p style="color:var(--muted); font-size:0.88rem; margin-top:1.5rem;">You will also be asked to submit a brief author biography (75–100 words, third person), your current institutional affiliation and title, a professional headshot (minimum 300 dpi, JPEG or PNG), and a preferred contact email.</p>
+  </div>
+</section>
+
+<!-- DEADLINES -->
+<section id="deadlines">
+  <div class="container">
+    <p class="section-label">Contributor Deadlines</p>
+    <h2>Your chapter, stage by stage</h2>
+    <p style="color:var(--muted); font-size:0.9rem;">Deadlines marked <span class="hard-deadline">Hard</span> are firm. Missing a hard deadline without prior communication may result in your chapter being removed from the collection. Extensions may be granted at the editors' discretion — contact Mitch at least two weeks before a deadline if you anticipate difficulty.</p>
+    <table class="deadline-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Date</th>
+          <th>What Is Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="stage-name">Confirmation &amp; Orientation</td>
+          <td class="stage-date">May–Jul 2026</td>
+          <td>Review contributor guidelines and style guide. Sign and return contributor agreement. Confirm chapter title and working scope.</td>
+        </tr>
+        <tr>
+          <td class="stage-name">Chapter Outline <span class="hard-deadline">Hard</span></td>
+          <td class="stage-date">Jul 31, 2026</td>
+          <td>1–2 page outline including your central argument, proposed section structure, and a brief note on key sources. Do not begin drafting until your outline has been approved. Editors return feedback within two weeks.</td>
+        </tr>
+        <tr>
+          <td class="stage-name">First Draft <span class="hard-deadline">Hard</span></td>
+          <td class="stage-date">Nov 15, 2026</td>
+          <td>Complete draft (7,000–9,000 words, including citations and references). Drafts that fall significantly outside the word range may be returned before editorial review begins.</td>
+        </tr>
+        <tr>
+          <td class="stage-name">Editorial Review</td>
+          <td class="stage-date">Nov–Dec 2026</td>
+          <td>Editors review your draft and return substantive feedback within four weeks. Feedback addresses argument, structure, transitions, length, and fit with the volume's themes.</td>
+        </tr>
+        <tr>
+          <td class="stage-name">Author Revision <span class="hard-deadline">Hard</span></td>
+          <td class="stage-date">Jan 31, 2027</td>
+          <td>Revised chapter resubmitted in response to editorial feedback. Authors who do not resubmit by this date risk removal from the collection.</td>
+        </tr>
+        <tr>
+          <td class="stage-name">Copyediting &amp; Reference Queries</td>
+          <td class="stage-date">Mar–May 2027</td>
+          <td>Your chapter enters copyediting. Queries returned through the portal; respond within two weeks of receipt. Corrected files due by May 15, 2027.</td>
+        </tr>
+        <tr>
+          <td class="stage-name">Proof &amp; Final Sign-Off <span class="hard-deadline">Hard</span></td>
+          <td class="stage-date">Jun 30, 2027</td>
+          <td>Formatted proof sent for final review. Review for factual accuracy and typographical errors only. No new content, restructuring, or significant wording changes accepted. Return signed approval within one week of receipt.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EDITORS -->
+<section id="editors">
+  <div class="container">
+    <p class="section-label">The Editors</p>
+    <h2>An interdisciplinary editorial team</h2>
+    <div class="editors-grid">
+      <div class="editor-card">
+        <h3>Mitchel Stimers, PhD</h3>
+        <div class="editor-title">Managing Editor</div>
+        <p>Dr. Stimers is a geographer whose research on natural disasters, environmental trauma, and recovery has appeared in journals including <em>Natural Hazards</em>, <em>Weather, Climate, and Society</em>, and <em>The Geographical Review</em>. His work emphasizes spatial and temporal disruptions to human life and governance. He manages author communications, portal operations, and the project's organizational infrastructure.</p>
+      </div>
+      <div class="editor-card">
+        <h3>Luma Mahairi, PhD, PharmD</h3>
+        <div class="editor-title">Co-Editor</div>
+        <p>Dr. Mahairi integrates clinical research, systems medicine, and public health, with a focus on resilience, regulatory ethics, and embodied care practices. She has authored works on genomics, neuroscience, and organizational transformation. She leads author recruitment and co-authors the volumes' front matter and thematic synthesis chapters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLICIES -->
+<section id="policies">
+  <div class="container">
+    <p class="section-label">Important Policies</p>
+    <h2>What contributors need to know</h2>
+    <div>
+      <div class="policy-block">
+        <h3>Communication</h3>
+        <p>Direct all project-related questions to Mitch and CC Luma on all correspondence. Please do not contact both editors simultaneously with the same question.</p>
+      </div>
+      <div class="policy-block">
+        <h3>Revision Expectations</h3>
+        <p>Contributing authors are expected to engage substantively with editorial feedback. Resubmissions that do not address the editors' notes may be returned for further revision. In cases where a chapter does not meet the collection's standards after two rounds of revision, it may be removed from the collection.</p>
+      </div>
+      <div class="policy-block">
+        <h3>Permissions and Original Work</h3>
+        <p>By submitting your chapter, you confirm that the work is original, has not been published elsewhere in substantially the same form, and is not under review at another venue. If your chapter includes previously published material, third-party figures, or extended quotations requiring permissions, you are responsible for securing those permissions before the copyediting stage.</p>
+      </div>
+      <div class="policy-block">
+        <h3>Contributor Agreement</h3>
+        <p>A signed contributor agreement is required before your chapter can enter editorial review. The editors will send the agreement template upon confirmation. Return your signed agreement to Mitch during the confirmation stage (May–July 2026).</p>
+      </div>
+      <div class="policy-block">
+        <h3>Deadline Extensions</h3>
+        <p>Extensions may be granted at the editors' discretion. Contact Mitch as early as possible — ideally at least two weeks before the due date. Extensions requested after a deadline has passed are handled case by case and are not guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <p class="eyebrow">Interested in Contributing?</p>
+  <h2>Get in touch with the editors</h2>
+  <p>To express interest or ask questions about a potential contribution, email Mitch and CC Luma. Please include your disciplinary background and the chapter topic you have in mind.</p>
+  <a href="mailto:mitch@compitaconsulting.com?cc=luma_mahairi@yahoo.com&subject=Loss%2C%20Time%2C%20and%20Embodiment%20%E2%80%94%20Contributor%20Inquiry" class="cta-button">Email the Editors</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Loss, Time, and Embodiment &nbsp;·&nbsp; Two-Volume Edited Collection &nbsp;·&nbsp; Routledge &nbsp;·&nbsp; Stimers &amp; Mahairi, Eds. &nbsp;·&nbsp; 2026–2027
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('section h2, section p.section-label, .volume-card, .editor-card, .timeline-item, .stat-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
