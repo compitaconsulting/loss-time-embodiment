@@ -20,6 +20,7 @@
       --vol2: #3a4a6b;
       --rule: #c8bfaa;
       --assigned: #8b6914;
+      --open: #ff0000;
     }
 
     html { scroll-behavior: smooth; }
@@ -279,6 +280,20 @@
       text-transform: uppercase;
       color: var(--assigned);
       border: 1px solid var(--assigned);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    .open-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--open);
+      border: 1px solid var(--open);
       padding: 0.1rem 0.4rem;
       border-radius: 2px;
       flex-shrink: 0;
@@ -638,7 +653,7 @@
           <li><strong>Part I</strong><span class="dash">—</span>Preface, Foreword, Introduction (Editors)<span class="assigned-tag">Assigned: Drs. Stimers & Mahairi</span></li>
           <li><strong>Part II</strong><span class="dash">—</span>Humanities</li>
           <li><strong>Ch1: Philosophy</strong><span class="dash">—</span>Merleau-Ponty and the Lived Body of Loss<span class="assigned-tag">Assigned: Dr. Emily Hughes and PhD Student River Heisler</span></li>
-          <li><strong>Ch2: History</strong><span class="dash">—</span>Erasure, Memory Wars, and Historical Grief</li>
+          <li><strong>Ch2: History</strong><span class="dash">—</span>Erasure, Memory Wars, and Historical Grief<span class="open-tag">OPEN</span</li>
           <li><strong>Ch3: Theology &amp; Religious Studies</strong><span class="dash">—</span>Faith After Rupture: Religious Loss and New Theologies</li>
           <li><strong>Ch4: Literature</strong><span class="dash">—</span>Grief on the Page: Contemporary Literature and Absence<span class="assigned-tag">Assigned: Dr. Sokunthary Svay</span></li>
           <li><strong>Ch5: Art &amp; Art History</strong><span class="dash">—</span>Representations of Loss: Artistic Responses to Grief</li>
